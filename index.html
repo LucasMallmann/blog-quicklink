@@ -17,9 +17,20 @@
       <li><a href="/blog/blog-post-1.html">Blog Post 1</a></li>
       <li><a href="/blog/blog-post-2.html">Blog Post 2</a></li>
       <li><a href="/blog/blog-post-3.html">Blog Post 3</a></li>
-      <!-- Add more blog post links here -->
     </ul>
   </div>
+  <script async src="/quicklink.umd.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const linksToPrefetch = document.querySelectorAll('.post-list a');
+
+      quicklink.listen({
+        el: linksToPrefetch,
+        limit: 10, // Optional limit to set the maximum number of pages to prefetch
+        delay: 0 // The amount of time each link needs to stay inside the viewport before being prefetched, in milliseconds.
+      })
+    })
+  </script>
   <script type="module" src="/main.js"></script>
 </body>
 
